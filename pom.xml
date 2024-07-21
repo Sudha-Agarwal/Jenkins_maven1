@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.learning</groupId>
+  <artifactId>jenkins</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+<properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <github.token>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</github.token>
+    </properties>
+
+    <dependencies>
+        <!-- Add your dependencies here -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Surefire plugin for running tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!-- Jar plugin for packaging -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- GitHub Release plugin -->
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>maven-github-release-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <oauth2Token>${github.token}</oauth2Token>
+                    <owner>Sudha-Agarwal</owner>
+                    <repositoryName>https://github.com/Sudha-Agarwal/Jenkins_maven.git</repositoryName>
+                    <tagName>${project.version}</tagName>
+                    <releaseName>${project.version}</releaseName>
+                    <releaseDescription>Release of version ${project.version}</releaseDescription>
+                    <overwrite>false</overwrite>
+                    <updateRelease>false</updateRelease>
+                    <draftRelease>false</draftRelease>
+                    <prerelease>false</prerelease>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+   </project>
