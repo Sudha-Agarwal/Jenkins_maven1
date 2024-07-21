@@ -69,7 +69,7 @@
                 <configuration>
                     <oauth2Token>${github.token}</oauth2Token>
                     <owner>Sudha-Agarwal</owner>
-                    <repositoryName>https://github.com/Sudha-Agarwal/Jenkins_maven.git</repositoryName>
+                    <repositoryName>https://github.com/Sudha-Agarwal/Jenkins_maven1.git</repositoryName>
                     <tagName>${project.version}</tagName>
                     <releaseName>${project.version}</releaseName>
                     <releaseDescription>Release of version ${project.version}</releaseDescription>
